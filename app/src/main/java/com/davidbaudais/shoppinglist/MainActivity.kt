@@ -35,38 +35,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // want the list to contain ShoppingItem objects
-                    var sItems by remember { mutableStateOf(listOf<ShoppingItem>()) }
 
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        Button(
-                            onClick = {},
-                            modifier = Modifier.align(Alignment.CenterHorizontally)
-                        ) {
-                            Text("Add Item")
-                        }
-                        LazyColumn (
-                            modifier = Modifier.fillMaxSize().padding(16.dp)
-                        ) {
-                            // content of what is LazyColumn
-                            items(sItems){
-                                // will automatically update the LazyColumn list when an
-                                // item is either added or deleted
-
-                            }
-                        }
-                    }
+                    ShoppingListApp()
                 }
-
             }
         }
     }
 }
-
-data class ShoppingItem(val id: Int,
-                        var name: String,
-                        var quantity: Int,
-                        var isEditing: Boolean = false)
